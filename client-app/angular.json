@@ -31,11 +31,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "https://unpkg.com/aos@2.3.1/dist/aos.css"
+              "src/styles.scss"
             ],
             "scripts": [
-              "https://unpkg.com/aos@2.3.1/dist/aos.js"
             ]
           },
           "configurations": {

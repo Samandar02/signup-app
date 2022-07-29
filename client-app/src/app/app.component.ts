@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-declare let AOS:any
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,8 +7,7 @@ declare let AOS:any
 export class AppComponent implements OnInit {
 
   ngOnInit(): void {
-   AOS.init();
+   
   }
-  title = 'client-app';
 
 }
