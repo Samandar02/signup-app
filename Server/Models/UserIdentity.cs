@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
-
-public class IdUser:IdentityUser
+namespace Server.Models;
+public class UserIdentity:IdentityUser
 {
     [PersonalData]
     public string? Bio { get; set; }
