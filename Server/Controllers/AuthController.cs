@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -15,45 +16,35 @@ public class AuthController : ControllerBase
 {
     private readonly UserManager<IdUser> userManager;
     private readonly IConfiguration cofiguration;
+    private readonly AppDbContext appDbContext;
 
-    public AuthController(UserManager<IdUser> userManager, IConfiguration configuration)
+    public AuthController(UserManager<IdUser> userManager, IConfiguration configuration, AppDbContext appDbContext)
     {
         this.userManager = userManager;
         this.cofiguration = configuration;
+        this.appDbContext = appDbContext;
     }
-    [Authorize]
-    [HttpGet("me")]
-    public async Task<ActionResult<IdUser>> Me([FromHeader] string id)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<IdUser>> Me([FromRoute] string id)
     {
         var user = await userManager.FindByIdAsync(id);
-
         return Ok(user);
     }
-    [Authorize]
-    [HttpPut("update")]
-    public async Task<ActionResult<bool>> Update(CredentialAdditional credential)
+    [HttpPut("{id}")]
+    public async Task<ActionResult<bool>> Update([FromRoute] string id, CredentialAdditional credential)
     {
+        if (id != credential.Id)
+            return BadRequest();
+        var user = await userManager.FindByIdAsync(id);
+        user.UserName = credential.UserName;
+        user.Email = credential.Email;
+        user.Bio = credential.Bio;
+        user.ImgUrl = credential.ImgUrl;
+        user.PhoneNumber = credential.ImgUrl;
+        appDbContext.Entry(user).State = EntityState.Modified;
+        await appDbContext.SaveChangesAsync();
 
-        var user = new IdUser()
-        {
-            Id = credential.Id,
-            UserName = credential.UserName,
-            Email = credential.Email,
-            Bio = credential.Bio,
-            ImgUrl = credential.ImgUrl,
-            PhoneNumber = credential.PhoneNumber,
-        };
-        var token = await userManager.GeneratePasswordResetTokenAsync(user);
-
-        var resultPassword = await userManager.ResetPasswordAsync(user, token, credential.Password);
-
-        var result = await userManager.UpdateAsync(user);
-
-
-        if (result.Succeeded && resultPassword.Succeeded)
-            return Ok(new { updatedError = result.Errors, PasswordEreor = resultPassword.Errors });
-
-        return Ok(false);
+        return Ok(true);
     }
     [HttpPost("up")]
     public async Task<ActionResult<bool>> Up(Credential credential)
@@ -73,7 +64,7 @@ public class AuthController : ControllerBase
 
         return Ok(true);
     }
-    [HttpPost("in")]
+    [HttpPost]
     public async Task<ActionResult<string>> In(Credential credential)
     {
         SymmetricSecurityKey securityToken = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(cofiguration["JwtConfig:IssuerSigningKey"]));

@@ -12,8 +12,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddDbContext<AppDbContext>(options=>options.UseInMemoryDatabase("myDb"));
-builder.Services.AddIdentity<IdUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
-.AddTokenProvider<DataProtectorTokenProvider<AppDbContext>>(TokenOptions.DefaultProvider);;
+builder.Services.AddIdentity<IdUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+//.AddTokenProvider<DataProtectorTokenProvider<AppDbContext>>(TokenOptions.DefaultProvider);;
 builder.Services.AddAuthentication(opt=>{
     opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
