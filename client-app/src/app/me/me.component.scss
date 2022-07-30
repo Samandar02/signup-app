@@ -1,0 +1,7 @@
+@use '../Styles/forms.scss';
+
+.left-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

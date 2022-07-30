@@ -25,6 +25,7 @@ public class AuthController : ControllerBase
         this.cofiguration = configuration;
         this.appDbContext = appDbContext;
     }
+    
     [HttpGet("{id}")]
     public async Task<ActionResult<UserIdentity>> Me([FromRoute] string id)
     {

@@ -1,0 +1,26 @@
+<div class="navbar">
+    <div class="brand">
+        <img src="https://images-platform.99static.com//3XRYufZMWht0KxKsfziqpiDDxLw=/115x120:857x862/fit-in/500x500/99designs-contests-attachments/116/116335/attachment_116335374"
+            alt="brand">
+    </div>
+    <div class="user">
+        <div class="drop-down">
+            <div class="drop-down-header" (click)="toggle()">
+                <img src="https://brandlogos.net/wp-content/uploads/2022/03/google_contacts-logo-brandlogos.net_.png"
+                    alt="">
+                    <p>John Doe</p> +
+            </div>
+            <div class="drop-down-items">
+                <div class="drop-down-item">
+                    <p><a routerLink="me">Personal Data</a></p>
+                </div>
+                <div class="drop-down-item">
+                    <p><a routerLink="edit">Edit Profile</a></p>
+                </div>
+                <div class="drop-down-item">
+                    <p><a (click)="logOut()">Log Out</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
