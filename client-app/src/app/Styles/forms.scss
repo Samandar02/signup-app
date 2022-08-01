@@ -76,3 +76,35 @@
     align-items: center;
     flex-direction: column;
 }
+.container{
+    width: 60%;
+    text-align: center;
+}
+.left-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn{
+    border: 1px solid var(--secondary);
+    padding: 8px 24px;
+    transition: all .1s ease-in;
+    border-radius: 8px;
+    &:hover{
+        background-color: lighten(rgb(194, 191, 191),10px);
+    }
+}
+.outline{
+    
+    &:hover{
+        border: 1px solid transparent;
+    }
+}
+.primary{
+    background-color: var(--primary);
+    color: white;
+    &:hover{
+        border: 1px solid var(--primary);
+        color: var(--primary);
+    }
+}

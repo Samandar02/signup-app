@@ -1,26 +1,58 @@
 <div class="center">
-    <div class="header">
-        <h1>Personal data</h1>
-        <p>Shoe your name or change it</p>
-    </div>
-    <div class="left-right form-header">
-        <div class="title">
-            <h1>Profile</h1>
-            <p>Show or edit your profile</p>
+    <div class="container">
+        <div class="header">
+            <h1>Personal Info</h1>
+            <p>Basic info like your name and photo</p>
         </div>
-        <div class="action">
-            <a routerLink="edit">Edit</a>
+        <div class="left-right form-header">
+            <div class="title">
+
+            </div>
+            <div class="action">
+
+            </div>
         </div>
-    </div>
-    <div class="form-body">
-        <table>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-    </div>
-    <div class="left-right form-footer">
-        <p>created by:Samandar02</p>
-        <p>dev.io</p>
+        <div class="form-body">
+            <div class="table">
+                <table>
+                    <tr>
+                        <td>
+                            <h1>Profile</h1>
+                            <p>Some info may be visible other people</p>
+                        </td>
+                        <td><a class="btn outline" routerLink="../edit">Edit</a></td>
+                
+                    </tr>
+                    <tr>
+                        <td>Photo</td>
+                        <td><img [src]="me.ImgUrl" [alt]="me.ImgUrl"></td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><p>{{me.userName}}</p></td>
+                    </tr>
+                    <tr>
+                        <td>Bio</td>
+                        <td><p>{{me.bio}}</p></td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td><p>{{me.phoneNumber}}</p></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><p>{{me.email}}</p></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><p>********</p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="left-right form-footer">
+            <p>created by:Samandar02</p>
+            <p>dev.io</p>
+        </div>
     </div>
 </div>

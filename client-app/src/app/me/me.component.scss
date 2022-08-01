@@ -1,7 +1,46 @@
 @use '../Styles/forms.scss';
 
-.left-right{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+.form-body {
+    .table {
+        border: 1px solid var(--secondary);
+        border-radius: var(--border-radius);
+    }
+
+    table {
+        color: var(--secondary);
+        width: 100%;
+        text-align: left;
+        //border: 1px solid var(--secondary);
+        border-collapse: collapse;
+
+        tr {
+            td {
+                h1 {
+                    color: var(--secondary-d);
+                }
+
+                img {
+                    width: 90px;
+                    height: 90px;
+                }
+
+                vertical-align: center;
+                padding: 24px 8px 24px 36px;
+                border-bottom: 1px solid;
+                width: 100%;
+
+                &:first-child {
+                    width: 30%;
+                    
+                }
+
+                &:last-child {
+                    p {
+                        color: var(--secondary-d);
+                    }
+                }
+            }
+        }
+    }
 }
