@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +10,14 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   isToggled:boolean = false;
-  constructor(private router:Router) { }
+  constructor(private router:Router,private apiSvc:ApiService) { }
 
   ngOnInit(): void {
     document.getElementsByClassName("drop-down-items")[0]
     .setAttribute("style","display:none")
   }
   logOut(){
+    this.apiSvc.logOut();
     this.router.navigate(['']);
   }
   toggle(){

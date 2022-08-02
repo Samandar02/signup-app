@@ -1,5 +1,5 @@
 <div class="modal">
-    <form>
+    <form #frm="ngForm" (submit)="onSubmit(frm.value)">
         <div class="form">
             <div class="brand">
                 <img src="https://images-platform.99static.com//3XRYufZMWht0KxKsfziqpiDDxLw=/115x120:857x862/fit-in/500x500/99designs-contests-attachments/116/116335/attachment_116335374"
@@ -21,13 +21,13 @@
                     <span class="icon material-symbols-outlined">
                         mail
                         </span>
-                    <input placeholder="E-mail" type="text" name="username">
+                    <input ngModel placeholder="E-mail" type="text" name="email">
                 </div>
                 <div class="form-control ">
                     <span class="icon material-symbols-outlined">
                         lock
                         </span>
-                    <input placeholder="Password" type="password" name="password">
+                    <input ngModel placeholder="Password" type="password" name="password">
                 </div>
             </div>
             <div class="action">

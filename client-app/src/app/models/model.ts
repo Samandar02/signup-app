@@ -13,8 +13,8 @@ export class UserSignUp {
     }
 }
 export class UserVM {
-    constructor(public Id?: string, 
-        public ImgUrl?: string,
+    constructor(public id?: string, 
+        public imgUrl?: string,
         public email?: string, 
         public password?: string, 
         public userName?: string, 

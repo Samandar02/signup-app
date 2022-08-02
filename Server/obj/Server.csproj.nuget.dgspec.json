@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\repositories\\signup-app\\server\\Server.csproj": {}
+    "C:\\repositories\\signup-app\\Server\\Server.csproj": {}
   },
   "projects": {
-    "C:\\repositories\\signup-app\\server\\Server.csproj": {
+    "C:\\repositories\\signup-app\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\repositories\\signup-app\\server\\Server.csproj",
+        "projectUniqueName": "C:\\repositories\\signup-app\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "C:\\repositories\\signup-app\\server\\Server.csproj",
+        "projectPath": "C:\\repositories\\signup-app\\Server\\Server.csproj",
         "packagesPath": "C:\\Users\\NOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\repositories\\signup-app\\server\\obj\\",
+        "outputPath": "C:\\repositories\\signup-app\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -20,12 +20,12 @@
                             <h1>Profile</h1>
                             <p>Some info may be visible other people</p>
                         </td>
-                        <td><a class="btn outline" routerLink="../edit">Edit</a></td>
+                        <td><a class="btn outline" (click)="edit()">Edit</a></td>
                 
                     </tr>
                     <tr>
                         <td>Photo</td>
-                        <td><img [src]="me.ImgUrl" [alt]="me.ImgUrl"></td>
+                        <td><img [src]="me.imgUrl" [alt]="me.imgUrl"></td>
                     </tr>
                     <tr>
                         <td>Name</td>

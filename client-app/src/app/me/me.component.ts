@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserVM } from '../models/model';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-me',
@@ -8,10 +10,16 @@ import { UserVM } from '../models/model';
 })
 export class MeComponent implements OnInit {
 
-  constructor() { }
-  me = new UserVM('1', 'https://findicons.com/files/icons/2526/bloggers/256/admin.png', 'samandar@mail.ru', '', 'samandar', 'Im full stack dev', '974908957')
+  constructor(private apiSvc:ApiService,private router:Router) { }
+  me = new UserVM()
   ngOnInit(): void {
+    this.apiSvc.getMe().subscribe(res=>{
+      this.me = <UserVM>res;
 
+    })
+  }
+  edit(){
+    this.router.navigate(['../edit'],{queryParams:{id:this.me.id}})
   }
 
 }

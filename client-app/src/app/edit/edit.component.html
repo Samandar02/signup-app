@@ -1,7 +1,7 @@
 <div class="center">
     <div class="container">
         <p><a routerLink="../me">&lt; Back</a></p>
-        <form (submit)="OnSubmit()">
+        <form (submit)="OnSubmit(frm.value)" #frm="ngForm">
             <div class="table">
                 <table>
                     <tr>
@@ -10,44 +10,45 @@
                         </td>
                     </tr>
                     <tr>
-                        <td> <img [src]="me.ImgUrl" alt=""> Photo</td>
+                        <td> <img [src]="me.imgUrl" alt=""> Photo</td>
 
                     </tr>
                     <tr>
                         <td>
                             <p>Name</p>
-                            <input placeholder="Enter your name" type="text">
+                            <input ngModel name="username" placeholder="Enter your name" type="text">
                         </td>
 
                     </tr>
                     <tr>
                         <td>
                             <p>Bio</p>
-                            <textarea cols="25" rows="3"  placeholder="Enter your Bio" type="text"> </textarea>
+                            <textarea ngModel name="bio" cols="25" rows="3" placeholder="Enter your Bio"
+                                type="text"> </textarea>
                         </td>
 
                     </tr>
                     <tr>
                         <td>
                             <p>Phone</p>
-                            <input placeholder="Enter your Phone" type="text">
+                            <input ngModel name="phoneNumber" placeholder="Enter your Phone" type="text">
                         </td>
 
                     </tr>
                     <tr>
                         <td>
                             <p>Email</p>
-                            <input placeholder="Enter your Email" type="text">
+                            <input ngModel name="email" placeholder="Enter your Email" type="text">
                         </td>
 
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>
                             <p>Password</p>
-                            <input placeholder="Enter your Password" type="text">
+                            <input  placeholder="Enter your Password" type="text">
                         </td>
 
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td>
                             <button class="btn primary">Save</button>

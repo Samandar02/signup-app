@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { pipe } from 'rxjs';
 import { UserVM } from '../models/model';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-edit',
@@ -10,14 +11,20 @@ import { UserVM } from '../models/model';
 })
 export class EditComponent implements OnInit {
 
-  constructor(private router:Router) { }
-  me = new UserVM('1', 'https://findicons.com/files/icons/2526/bloggers/256/admin.png', 'samandar@mail.ru', '', 'samandar', 'Im full stack dev', '974908957')
+  constructor(private route:ActivatedRoute,private apiSvc:ApiService,private router:Router) { }
+  me = new UserVM()
   ngOnInit(): void {
   }
-
-  OnSubmit(){
-    
-    this.router.navigate(['me'])
+  
+  OnSubmit(form:UserVM){
+    this.me = form;
+    this.route.queryParamMap.subscribe(res=>{
+      this.me.id = res.get('id')?.toString();
+      console.log(this.me)
+    })
+    this.apiSvc.editUser(this.me).subscribe(res=>{
+      this.router.navigate(['me'])
+    })
   }
 
 }

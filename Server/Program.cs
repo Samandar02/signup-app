@@ -7,7 +7,7 @@ using Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddCors();
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(options=>options.UseInMemoryDatabase("myDb"));
@@ -34,7 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors(builder=>builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
