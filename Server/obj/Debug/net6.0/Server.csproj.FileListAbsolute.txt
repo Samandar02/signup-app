@@ -45,3 +45,4 @@ C:\repositories\signup-app\Server\obj\Debug\net6.0\refint\Server.dll
 C:\repositories\signup-app\Server\obj\Debug\net6.0\Server.pdb
 C:\repositories\signup-app\Server\obj\Debug\net6.0\Server.genruntimeconfig.cache
 C:\repositories\signup-app\Server\obj\Debug\net6.0\ref\Server.dll
+C:\repositories\signup-app\Server\bin\Debug\net6.0\Server.staticwebassets.runtime.json

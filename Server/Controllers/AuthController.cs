@@ -26,6 +26,7 @@ public class AuthController : ControllerBase
         this.appDbContext = appDbContext;
     }
     
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<ActionResult<UserIdentity>> Me([FromRoute] string id)
     {
@@ -34,6 +35,7 @@ public class AuthController : ControllerBase
     }
     
     [HttpPost("up")]
+    [DisableRequestSizeLimit]
     public async Task<ActionResult<bool>> Up(CredentialSignUp credential)
     {
         var user = await userManager.FindByEmailAsync(credential.Email);
@@ -72,6 +74,7 @@ public class AuthController : ControllerBase
         }
         return Unauthorized();
     }
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<ActionResult<bool>> Update([FromRoute] string id, CredentialVM credential)
     {
@@ -82,7 +85,7 @@ public class AuthController : ControllerBase
         user.Email = credential.Email;
         user.Bio = credential.Bio;
         user.ImgUrl = credential.ImgUrl;
-        user.PhoneNumber = credential.ImgUrl;
+        user.PhoneNumber = credential.PhoneNumber;
         appDbContext.Entry(user).State = EntityState.Modified;
         await appDbContext.SaveChangesAsync();
 

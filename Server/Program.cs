@@ -38,7 +38,7 @@ app.UseCors(builder=>builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseFileServer();
 app.MapControllers();
 
 app.Run();

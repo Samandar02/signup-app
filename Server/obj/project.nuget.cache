@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4i9kl3B/CtVJMjLsAtp+3uJuMzU6kg2R0FBiarovw1S8GEAgp81DQ+dco9/f+C/Q4kHFWgfAyl6It5wPvehD6w==",
+  "dgSpecHash": "5aeR4YgMF0VNbz7scZCoAuAS7iRkppnLifE/F7Cf6mCWxQpsnX6Z0dhw+qLuW5sXoOs8bf8kl/yKO/YxXHHmlA==",
   "success": true,
-  "projectFilePath": "C:\\repositories\\signup-app\\Server\\Server.csproj",
+  "projectFilePath": "C:\\repositories\\signup-app\\server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NOVO\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\NOVO\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
