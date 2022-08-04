@@ -11,20 +11,31 @@ import { ApiService } from '../services/api.service';
 })
 export class EditComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private apiSvc:ApiService,private router:Router) { }
+  constructor(private route: ActivatedRoute, private apiSvc: ApiService, private router: Router) { }
   me = new UserVM()
+ 
   ngOnInit(): void {
   }
-  
-  OnSubmit(form:UserVM){
+
+  OnSubmit(form: UserVM) {
     this.me = form;
-    this.route.queryParamMap.subscribe(res=>{
+    // console.log(this.me)
+    this.route.queryParamMap.subscribe(res => {
       this.me.id = res.get('id')?.toString();
-      console.log(this.me)
     })
-    this.apiSvc.editUser(this.me).subscribe(res=>{
+    this.apiSvc.editUser(this.me).subscribe(res => {
       this.router.navigate(['me'])
     })
   }
+  uploadImage(event: any) {
 
+    const file: File = event.target.files[0];
+
+    this.apiSvc.uploadImg(file).subscribe(res=>{
+      console.log(res);
+    })
+
+   
+
+  }
 }

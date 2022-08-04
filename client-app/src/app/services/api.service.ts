@@ -9,14 +9,18 @@ import { Token } from '@angular/compiler';
   providedIn: 'root'
 })
 export class ApiService {
-
+  uploadImg(file: File) {
+    return this.http.post(this.URLUploader, file)
+  }
+  
+  readonly URLUploader = "https://localhost:7250/Upload";
   readonly URL = "https://localhost:7250/Auth";
   constructor(private http: HttpClient) {
 
   }
   getMe() {
     let token = localStorage.getItem('auth_token')
-    return this.http.get(this.URL + '/' + 
+    return this.http.get(this.URL + '/' +
       this.decodeToken(token ?? '')['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']);
   }
   editUser(user: UserVM): Observable<Object> {
@@ -34,7 +38,7 @@ export class ApiService {
   helper = new JwtHelperService();
   isSignedIn() {
     let token = localStorage.getItem('auth_token')
-    const decodedToken = this.helper.isTokenExpired(token??'');
+    return this.helper.isTokenExpired(token ?? '');
   }
   decodeToken(token: string) {
     return this.helper.decodeToken(token);

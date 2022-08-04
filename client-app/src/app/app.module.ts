@@ -12,6 +12,7 @@ import { MeComponent } from './me/me.component';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.interceptor';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthInterceptor } from './auth.interceptor';
     HttpClientModule,
   ],
   providers:[
-    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

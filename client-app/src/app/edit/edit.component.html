@@ -10,7 +10,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <td> <img [src]="me.imgUrl" alt=""> Photo</td>
+                        <td>
+                            <div class="image">
+                                <input #imageInput accept="image/*" (change)="uploadImage($event)" type="file">
+                                <span class="icon material-symbols-outlined">
+                                    photo_camera
+                                </span>
+                                <p>Photo</p>
+                                <img [src]="me.imgUrl??'assets/user.png'" alt="">
+                            </div>
+                        </td>
 
                     </tr>
                     <tr>

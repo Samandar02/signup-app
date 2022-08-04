@@ -14,11 +14,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     document.getElementsByClassName("drop-down-items")[0]
-    .setAttribute("style","display:none")
+      .setAttribute("style","display:none")
   }
   logOut(){
     this.apiSvc.logOut();
-    this.router.navigate(['']);
+    this.router.navigateByUrl('');
   }
   toggle(){
     if(this.isToggled){
@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
       document.getElementsByClassName("drop-down-items")[0]
       .setAttribute("style","display:inline-block")
       this.isToggled = !this.isToggled;
-    }
+   }
   }
 
 }

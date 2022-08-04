@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <td>Photo</td>
-                        <td><img [src]="me.imgUrl" [alt]="me.imgUrl"></td>
+                        <td><img [src]="me.imgUrl??'assets/user.png'" [alt]="me.imgUrl"></td>
                     </tr>
                     <tr>
                         <td>Name</td>

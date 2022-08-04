@@ -8,9 +8,9 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent implements OnInit {
   constructor(private apiSvc:ApiService){}
-  isSignedIn:boolean = false;
+  isSignedIn:boolean = true;
   ngOnInit(): void {
-   this.apiSvc.isSignedIn()
+   this.isSignedIn = this.apiSvc.isSignedIn()
   }
 
 }
